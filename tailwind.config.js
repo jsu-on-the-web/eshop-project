@@ -3,7 +3,8 @@ module.exports = {
   content: ["./src/**/*.{html,jsx}",
     "./src/components/**/*.{html,jsx}",
     "./src/pages/**/*.{html,jsx}",
-    "./src/containers/**/*.{html,jsx}",],
+    "./src/containers/**/*.{html,jsx}",
+    "./index.html",],
   theme: {
     extend: {
       screens: {
@@ -35,10 +36,11 @@ module.exports = {
         subheading: ['Averia Serif Libre', 'serif']
       }
     },
-    plugins: [],
-    mode: 'jit',
+
 
   },
+  plugins: [],
+  mode: 'jit',
   module: {
     rules: [
       {

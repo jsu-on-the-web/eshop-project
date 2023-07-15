@@ -34,21 +34,22 @@ module.exports = {
         heading: ['Convergence', 'sans-serif'],
         subheading: ['Averia Serif Libre', 'serif']
       }
-  },
-  plugins: [],
-  mode: 'jit',
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
-      },
-    ],
-  },
+    },
+    plugins: [],
+    mode: 'jit',
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader',
+          ],
+        },
+      ],
+    },
+
+  }
 
 }
-

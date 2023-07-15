@@ -1,4 +1,6 @@
 @use '_normalize.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,700;1,300;1,700&family=Convergence&family=Montserrat:ital,wght@0,400;0,900;1,400;1,900&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+

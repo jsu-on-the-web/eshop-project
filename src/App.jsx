@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.scss'
 
 function App() {
@@ -10,7 +8,7 @@ function App() {
     <>
       {/* Header */}
       <header className='bg-slate-400'>
-        <h1 className='text-3xl'>
+        <h1 className='text-3xs font-heading'>
           testsg
         </h1>
         {/** Navbar */}
@@ -18,7 +16,7 @@ function App() {
       </header>
 
       {/* Body */}
-
+    <p className='text-2xl'>fssffs</p>
       {/** Carousel */}
 
       {/** Products Grid */}

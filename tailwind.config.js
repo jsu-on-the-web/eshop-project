@@ -37,19 +37,20 @@ module.exports = {
     },
     plugins: [],
     mode: 'jit',
-    module: {
-      rules: [
-        {
-          test: /\.scss$/,
-          use: [
-            'style-loader',
-            'css-loader',
-            'sass-loader',
-          ],
-        },
-      ],
-    },
 
-  }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  },
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
 
 }

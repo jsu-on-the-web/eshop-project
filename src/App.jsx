@@ -7,16 +7,17 @@ function App() {
   return (
     <>
       {/* Header */}
-      <header className='bg-slate-400'>
-        <h1 className='text-3xs font-heading'>
-          testsg
+      <header className=''>
+        <h1 className='font-heading'>
+          Market of Alexandria
         </h1>
+        <h2 className='font-bold font-subheading'>An infinite library of goods, at a fraction of the price</h2>
         {/** Navbar */}
 
       </header>
 
       {/* Body */}
-    <p className='text-2xl'>fssffs</p>
+    <p className='font-body'>fssffs</p>
       {/** Carousel */}
 
       {/** Products Grid */}

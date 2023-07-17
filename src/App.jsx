@@ -1,3 +1,4 @@
+import { ProductCard } from './components/ProductCard/ProductCard';
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookAtlas } from '@fortawesome/free-solid-svg-icons'
@@ -22,24 +23,25 @@ function App() {
         </header>
 
         {/* Body */}
-        <p className='font-body'>fssffs</p>
-        {/** Carousel */}
-        <section>
-          <div>
+        <main className='' >
+          <p className='font-body'>fssffs</p>
+          {/** Carousel */}
+          <section>
+            <div>
 
-          </div>
-        </section>
-        {/** Products Grid */}
-        <section className='grid grid-cols-2 products-grid'>
-          <div className='product-card'>
-            <img className='product__image' src='' />
-            <p className='product__name'>Product Name</p>
-            <p className='product__price'>Price</p>
-          </div>
-        </section>
+            </div>
+          </section>
+          {/** Products Grid */}
+          <section className='grid grid-cols-2 products-grid'>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </section>
+        </main>
 
         {/*Footer with dummy contact info */}
-</section>
+      </section>
     </>
   )
 }

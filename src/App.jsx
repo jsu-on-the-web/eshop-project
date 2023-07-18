@@ -17,7 +17,7 @@ function App() {
             <FontAwesomeIcon icon={faBookAtlas} className='mr-10' />
             Market of Alexandria
           </h1>
-          <h2 className='font-bold font-subheading'>An infinite library of goods, at a fraction of the price</h2>
+          <h2 className='font-bold font-subheading'>An infinite library, at a fraction of the price</h2>
           {/** Navbar */}
 
         </header>
@@ -28,7 +28,7 @@ function App() {
           {/** Carousel */}
           <section>
             <div>
-
+              {/** Map a list of CarouselCards here, they must have the product image and the name, but nothing else */}
             </div>
           </section>
           {/** Products Grid */}

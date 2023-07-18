@@ -1,8 +1,8 @@
+
 import { ProductCard } from './components/ProductCard/ProductCard';
 import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookAtlas } from '@fortawesome/free-solid-svg-icons'
 import './App.scss'
+import { Header } from './components/Header/Header';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,16 +11,7 @@ function App() {
     <>
       <section className='grid grid-rows-4 app'>
         {/* Header */}
-        <header className=''>
-
-          <h1 className='font-heading'>
-            <FontAwesomeIcon icon={faBookAtlas} className='mr-10' />
-            Market of Alexandria
-          </h1>
-          <h2 className='font-bold font-subheading'>An infinite library, at a fraction of the price</h2>
-          {/** Navbar */}
-
-        </header>
+        <Header />
 
         {/* Body */}
         <main className='' >

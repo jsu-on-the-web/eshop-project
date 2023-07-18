@@ -1,12 +1,23 @@
 
 import { ProductCard } from './components/ProductCard/ProductCard';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.scss'
 import { Header } from './components/Header/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage/HomePage';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then(res => res.json())
+      .then(data => setProducts(data))
+      .catch(err => {
+        console.log(err)
+      })
+  }, []);
   return (
     <>
       <section className='grid grid-rows-4 app'>
@@ -14,22 +25,12 @@ function App() {
         <Header />
 
         {/* Body */}
-        <main className='' >
-          {/** Carousel */}
-          <section>
-            <h2 className='mb-5 text-5xl font-subheading'>Featured Products</h2>
-            <div>
-              {/** Map a list of CarouselCards here, they must have the product image and the name, but nothing else */}
-            </div>
-          </section>
-          {/** Products Grid */}
-          <section className='grid grid-cols-2 products-grid'>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </section>
-        </main>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/products/:id' element={<ProductPage />} />
+          </Routes>
+        </BrowserRouter>
 
         {/*Footer with dummy contact info */}
       </section>

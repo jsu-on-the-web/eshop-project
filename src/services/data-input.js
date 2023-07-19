@@ -1,24 +1,57 @@
-import { db } from '../../config/firebase';
+import db from '../config/firebase.js';
 import {
     collection,
-    getDocs,
     addDoc,
-    onSnapshot,
-    doc,
-    getDoc,
-    deleteDoc,
-    updateDoc,
-    increment,
 } from 'firebase/firestore';
-import firebase from 'firebase/app';
+import firebase from "firebase/app/dist/index.cjs.js"
+import "firebase/firestore/dist/index.node.cjs.js";
+
 
 /** Initialize Firebase */
-firebase.initializeApp(db);
-const firestore = firebase.firestore();
+const app = firebase.initializeApp(db);
+const firestore = firebase.firestore(app);
 
 const addDocumentToFirestore = async (newDocData) => {
+    // const title = newDocData.title;
+    // const author = newDocData.author;
+    // const qualities = newDocData.qualities;
+    // const isFavourite = newDocData.isFavourite;
+    // const imageUrl = newDocData.imageUrl;
+    // const description = newDocData.description;
+    // const category = newDocData.category;
+
+    const {title, author, qualities, isFavourite, imageUrl, description, category} = newDocData;
+
+    const documentData = {
+        title,
+        author,
+        qualities,
+        isFavourite,
+        imageUrl,
+        description,
+        category
+    }
+    try {
+        const docRef = await addDoc(collection(firestore, 'products'), documentData);
+        console.log('Document written with ID: ', docRef.id);
+    } catch (e) {
+        console.log(e);
+    }
 
 }
+
+
+const addManyProductsToFirestore = async (productsArray) => {
+    productsArray.forEach(async (product) => {
+        await addDocumentToFirestore(product);
+    });
+}
+
+
+
+/*=============================================
+=            Data                             =
+=============================================*/
 
 const products = [
     {
@@ -375,21 +408,21 @@ const products = [
             'price': 21.99,
             'quantity': 4,
         },
-            {
-                'quality': 'very good',
-                'price': 15.0,
-                'quantity': 1,
-            },
-            {
-                'quality': 'good',
-                'price': 10.0,
-                'quantity': 5,
-            },
-            {
-                'quality': 'acceptable',
-                'price': 7.0,
-                'quantity': 1,
-            }],
+        {
+            'quality': 'very good',
+            'price': 15.0,
+            'quantity': 1,
+        },
+        {
+            'quality': 'good',
+            'price': 10.0,
+            'quantity': 5,
+        },
+        {
+            'quality': 'acceptable',
+            'price': 7.0,
+            'quantity': 1,
+        }],
         'isFavourite': false,
         'imageUrl': 'http://books.google.com/books/content?id=upcJCIH8M_oC&printsec=frontcover&img=1&zoom=1',
         'description': "James Gleick explains the theories behind the fascinating new science called chaos. Alongside relativity and quantum mechanics, it is being hailed as the twentieth century's third revolution. 8 pages of photos.",
@@ -403,21 +436,21 @@ const products = [
             'price': 21.99,
             'quantity': 4,
         },
-            {
-                'quality': 'very good',
-                'price': 15.0,
-                'quantity': 1,
-            },
-            {
-                'quality': 'good',
-                'price': 10.0,
-                'quantity': 5,
-            },
-            {
-                'quality': 'acceptable',
-                'price': 7.0,
-                'quantity': 1,
-            }],
+        {
+            'quality': 'very good',
+            'price': 15.0,
+            'quantity': 1,
+        },
+        {
+            'quality': 'good',
+            'price': 10.0,
+            'quantity': 5,
+        },
+        {
+            'quality': 'acceptable',
+            'price': 7.0,
+            'quantity': 1,
+        }],
         'isFavourite': false,
         'imageUrl': 'imageUrl',
         'description': "From a distance the Tinkertoy computer resembles a childhood fantasy gone wild or, as one of the group members remarked, a spool-and-stick version of the 'space slab' from the movie 2001: A Space Odyssey. Unlike the alien monolith, the computer plays a mean game of tic-tac-toe. A Tinkertoy framework called the read head clicks and clacks its way down the from the the monolith. At some point the clicking mysteriously stops; a 'core piece' within the framework spins and then with a satisfying 'kathunk' indirectly kicks an 'output duck, ' a bird-shaped construction. The output duck swings down from its perch as that its beak points at a number--which identifies the computer's next move in a game of tic-tac-toe.",
@@ -431,21 +464,21 @@ const products = [
             'price': 21.99,
             'quantity': 4,
         },
-            {
-                'quality': 'very good',
-                'price': 15.0,
-                'quantity': 1,
-            },
-            {
-                'quality': 'good',
-                'price': 10.0,
-                'quantity': 5,
-            },
-            {
-                'quality': 'acceptable',
-                'price': 7.0,
-                'quantity': 1,
-            }],
+        {
+            'quality': 'very good',
+            'price': 15.0,
+            'quantity': 1,
+        },
+        {
+            'quality': 'good',
+            'price': 10.0,
+            'quantity': 5,
+        },
+        {
+            'quality': 'acceptable',
+            'price': 7.0,
+            'quantity': 1,
+        }],
         'isFavourite': false,
         'imageUrl': '',
         'description': "Learn how to code while you write programs that effortlessly perform useful feats of automation! The second edition of this international fan favorite includes a brand-new chapter on input validation, Gmail and Google Sheets automations, tips for updating CSV files, and more. If you've ever spent hours renaming files or updating spreadsheet cells, you know how tedious tasks like these can be. But what if you could have your computer do them for you? Automate the Boring Stuff with Python, 2nd Edition teaches even the technically uninclined how to write programs that do in minutes what would take hours to do by hand—no prior coding experience required! This new, fully revised edition of Al Sweigart’s bestselling Pythonic classic, Automate the Boring Stuff with Python, covers all the basics of Python 3 while exploring its rich library of modules for performing specific tasks, like scraping data off the Web, filling out forms, renaming files, organizing folders, sending email responses, and merging, splitting, or encrypting PDFs. There’s also a brand-new chapter on input validation, tutorials on automating Gmail and Google Sheets, tips on automatically updating CSV files, and other recent feats of automations that improve your efficiency. Detailed, step-by-step instructions walk you through each program, allowing you to create useful tools as you build out your programming skills, and updated practice projects at the end of each chapter challenge you to improve those programs and use your newfound skills to automate similar tasks. Boring tasks no longer have to take to get through—and neither does learning Python!",
@@ -459,21 +492,21 @@ const products = [
             'price': 21.99,
             'quantity': 4,
         },
-            {
-                'quality': 'very good',
-                'price': 15.0,
-                'quantity': 1,
-            },
-            {
-                'quality': 'good',
-                'price': 10.0,
-                'quantity': 5,
-            },
-            {
-                'quality': 'acceptable',
-                'price': 7.0,
-                'quantity': 1,
-            }],
+        {
+            'quality': 'very good',
+            'price': 15.0,
+            'quantity': 1,
+        },
+        {
+            'quality': 'good',
+            'price': 10.0,
+            'quantity': 5,
+        },
+        {
+            'quality': 'acceptable',
+            'price': 7.0,
+            'quantity': 1,
+        }],
         'isFavourite': false,
         'imageUrl': '',
         'description': "Completely revised and updated, this best-selling introduction to programming in JavaScript focuses on writing real applications. JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications. This much anticipated and thoroughly revised third edition of Eloquent JavaScript dives deep into the JavaScript language to show you how to write beautiful, effective code. It has been updated to reflect the current state of Java¬Script and web browsers and includes brand-new material on features like class notation, arrow functions, iterators, async functions, template strings, and block scope. A host of new exercises have also been added to test your skills and keep you on track. As with previous editions, Haverbeke continues to teach through extensive examples and immerses you in code from the start, while exercises and full-chapter projects give you hands-on experience with writing your own programs. You start by learning the basic structure of the JavaScript language as well as control structures, functions, and data structures to help you write basic programs. Then you'll learn about error handling and bug fixing, modularity, and asynchronous programming before moving on to web browsers and how JavaScript is used to program them. As you build projects such as an artificial life simulation, a simple programming language, and a paint program, you'll learn how to: - Understand the essential elements of programming, including syntax, control, and data - Organize and clarify your code with object-oriented and functional programming techniques - Script the browser and make basic web applications - Use the DOM effectively to interact with browsers - Harness Node.js to build servers and utilities Isn't it time you became fluent in the language of the Web? * All source code is available online in an inter¬active sandbox, where you can edit the code, run it, and see its output instantly.",
@@ -482,3 +515,6 @@ const products = [
 
 ]
 
+
+
+addManyProductsToFirestore(products);

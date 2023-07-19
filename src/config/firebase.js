@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getFirestore, Timestamp, FieldValue, Filter } from 'firebase-admin/firestore';
+import { initializeApp } from "firebase/app.js";
+import { getFirestore, Timestamp, FieldValue, Filter } from 'firebase-admin/firestore.js';
+import "firebase/firestore/dist/index.node.cjs.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

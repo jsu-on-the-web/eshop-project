@@ -1,0 +1,12 @@
+@use '../../borders.scss' as b;
+@use '../../base-imports.scss' as bi;
+.carouselcard {
+    @include b.round-border--dark;
+    @apply flex flex-col;
+
+    .product {
+        &__info {
+            @apply flex flex-row justify-around;
+        }
+    }
+}

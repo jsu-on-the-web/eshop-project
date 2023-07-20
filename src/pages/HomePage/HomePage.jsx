@@ -1,3 +1,4 @@
+import { CarouselWrapper } from '../../components/CarouselWrapper/CarouselWrapper';
 import { ProductGrid } from '../../components/ProductGrid/ProductGrid';
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -13,13 +14,10 @@ const HomePage = () => {
         {/** Carousel */}
         <section>
           <h2 className='mb-5 text-5xl font-subheading'>Featured Products</h2>
-          <div>
-            {/** Map a list of CarouselCards here, they must have the product image and the name, but nothing else */}
-            <CarouselCard />
-          </div>
+          <CarouselWrapper />
         </section>
         {/** Products Grid */}
-<ProductGrid     />
+        <ProductGrid />
       </main>
     </>
   )

@@ -5,6 +5,9 @@
     @apply flex flex-col;
 
     .product {
+        &__image {
+            width: 50%;
+        }
         &__info {
             @apply flex flex-row justify-around;
         }

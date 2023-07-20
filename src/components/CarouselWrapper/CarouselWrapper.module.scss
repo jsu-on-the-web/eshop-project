@@ -1,0 +1,13 @@
+@use '../../base-imports';
+
+.carousel {
+&__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // Display 4 products in a row on larger screens
+    gap: 1rem; // Add some gap between products
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr); // Display 2 products in a row on medium screens
+    }
+}
+}

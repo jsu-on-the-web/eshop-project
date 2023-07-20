@@ -13,6 +13,8 @@ header::before {
 }
 
 .header {
+	display: flex;
+	justify-content: center;
 	&__title {
 		position: relative;
 		color: #ffffff;

@@ -1,0 +1,5 @@
+@use '../../borders.scss' as b;
+.productcard {
+    @include b.round-border--dark;
+    @apply flex flex-col content-center;
+}

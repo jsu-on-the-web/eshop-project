@@ -1,0 +1,17 @@
+
+@use '_base-imports.scss';
+
+
+$radius: 5px;
+
+// Using each of the border attributes separately instead of just the border attribute. 
+// This will make it easier to adjust and finetune the borders.
+
+@mixin round-border--dark {
+    border-radius: $radius;
+    @apply border-cork-900;
+    border-width: 2px;
+    border-style: solid;
+}
+
+

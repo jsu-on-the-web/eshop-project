@@ -1,10 +1,11 @@
-import { CarouselWrapper } from '../../components/CarouselWrapper/CarouselWrapper';
+import { Carousel } from '../../components/CarouselWrapper/Carousel/Carousel';
 import { ProductGrid } from '../../components/ProductGrid/ProductGrid';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { NavLink } from 'react-router-dom'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
 import { CarouselCard } from '../../components/CarouselCard/CarouselCard';
+import CarouselWrapper from '../../components/CarouselWrapper/CarouselWrapper';
 
 const HomePage = () => {
   return (

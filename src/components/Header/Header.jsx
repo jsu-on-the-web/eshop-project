@@ -5,11 +5,11 @@ import styles from './Header.module.scss';
 
 import { faBookAtlas, faShoppingCart, faBars } from '@fortawesome/free-solid-svg-icons'
 export function Header() {
-  return <header className='flex items-baseline'>
+  return <header className='flex items-baseline justify-center'>
     {/** Hamburger menu */}
-    <FontAwesomeIcon icon={faBars} className='mr-20' />
+    <FontAwesomeIcon icon={faBars} className='mr-20 md:text-3xl lg:text-6xl' />
     <div className='header__title'>
-      <h1 className='mb-5 font-heading md:text-xs'>
+      <h1 className='mb-5 font-heading xs:text-sm md:text-3xl lg:text-6xl'>
         <FontAwesomeIcon icon={faBookAtlas} className='mr-10' />
         Market of Alexandria
       </h1>
@@ -20,6 +20,6 @@ export function Header() {
     }
 
     {/** Cart */}
-    <FontAwesomeIcon icon={faShoppingCart} className='ml-10' />
+    <FontAwesomeIcon icon={faShoppingCart} className='ml-10 md:text-3xl lg:text-6xl' />
   </header>;
 }

@@ -1,15 +1,15 @@
-import db from '../config/firebase.js';
+import {db} from '../config/firebase.js';
 import {
     collection,
     addDoc,
 } from 'firebase/firestore';
-import firebase from "firebase/app/dist/index.cjs.js"
-import "firebase/firestore/dist/index.node.cjs.js";
+// import firebase from "firebase/app/dist/index.cjs.js"
+// import "firebase/firestore/dist/index.node.cjs.js";
 
 
 /** Initialize Firebase */
-const app = firebase.initializeApp(db);
-const firestore = firebase.firestore(app);
+// const app = firebase.initializeApp(db);
+// const firestore = firebase.firestore(app);
 
 const addDocumentToFirestore = async (newDocData) => {
     // const title = newDocData.title;
@@ -32,7 +32,7 @@ const addDocumentToFirestore = async (newDocData) => {
         category
     }
     try {
-        const docRef = await addDoc(collection(firestore, 'products'), documentData);
+        const docRef = await addDoc(collection(db, 'products'), documentData);
         console.log('Document written with ID: ', docRef.id);
     } catch (e) {
         console.log(e);
@@ -41,7 +41,7 @@ const addDocumentToFirestore = async (newDocData) => {
 }
 
 
-const addManyProductsToFirestore = async (productsArray) => {
+export const addManyProductsToFirestore = async (productsArray) => {
     productsArray.forEach(async (product) => {
         await addDocumentToFirestore(product);
     });
@@ -517,4 +517,3 @@ const products = [
 
 
 
-addManyProductsToFirestore(products);

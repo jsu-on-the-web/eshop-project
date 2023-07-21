@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 
 import { faBookAtlas, faShoppingCart, faBars } from '@fortawesome/free-solid-svg-icons'
 export function Header() {
-  return <header className='flex items-baseline justify-center'>
+  return <header className='flex items-baseline justify-center mb-6'>
     {/** Hamburger menu */}
     <FontAwesomeIcon icon={faBars} className='mr-20 md:text-3xl lg:text-6xl' />
     <div className='header__title'>

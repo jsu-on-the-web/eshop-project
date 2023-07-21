@@ -17,7 +17,7 @@ const CarouselWrapper = ({ products }) => {
         setStartIndex((prevIndex) => Math.min(prevIndex + 1, products.length - 4));
     };
     return (
-        <section className='carousel__wrapper'>
+        <section className='m-5 mb-17'>
             <Carousel
                 products={products}
                 currentIndex={startIndex}

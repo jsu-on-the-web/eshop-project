@@ -20,7 +20,7 @@ function App() {
   }, []);
   return (
     <>
-      <section className='grid grid-rows-4 app'>
+      <section className='flex flex-col'>
         {/* Header */}
         <Header />
 

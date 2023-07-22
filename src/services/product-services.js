@@ -1,14 +1,7 @@
 import { db } from '../config/firebase';
 import {
     collection,
-    getDocs,
-    addDoc,
-    onSnapshot,
-    doc,
-    getDoc,
-    deleteDoc,
-    updateDoc,
-    increment,
+    getDocs
 } from 'firebase/firestore';
 
 /*----------  Function Declaration  ----------*/

@@ -1,13 +1,15 @@
 import { Carousel } from '../../components/CarouselWrapper/Carousel/Carousel';
 import { ProductGrid } from '../../components/ProductGrid/ProductGrid';
-import React from 'react'
+import { useContext, useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { NavLink } from 'react-router-dom'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
 import { CarouselCard } from '../../components/CarouselCard/CarouselCard';
 import CarouselWrapper from '../../components/CarouselWrapper/CarouselWrapper';
+import { ProductsListContext } from '../../context/ProductsListContextProvider';
 
 const HomePage = () => {
+  const ProductsList = useContext(ProductsListContext);
   return (
     <>
       {/* Body */}
@@ -15,10 +17,10 @@ const HomePage = () => {
         {/** Carousel */}
         <section>
           <h2 className='m-5 mb-10 text-5xl font-subheading'>Featured Products</h2>
-          <CarouselWrapper  />
+          <CarouselWrapper products={ProductsList.products} />
         </section>
         {/** Products Grid */}
-        <ProductGrid />
+        <ProductGrid products={ProductsList.products} />
       </main>
     </>
   )

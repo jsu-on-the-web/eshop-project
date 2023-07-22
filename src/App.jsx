@@ -6,17 +6,15 @@ import { Header } from './components/Header/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import ProductPage from './pages/ProductPage/ProductPage';
+import { fetchAllProducts } from './services/product-services';
 
 function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(err => {
-        console.log(err)
-      })
+    fetchAllProducts().then((data) => {
+        setProducts(data);
+    })
   }, []);
   return (
     <>

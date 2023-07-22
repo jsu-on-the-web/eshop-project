@@ -2,14 +2,15 @@
 @use '../../base-imports.scss' as bi;
 .carouselcard {
     @include b.round-border--dark;
-    @apply flex flex-col;
+    @apply flex flex-col items-center justify-between;
 
     .product {
         &__image {
             width: 50%;
         }
         &__info {
-            @apply flex flex-row justify-around;
+            @apply flex flex-col justify-around m-4;
+
         }
     }
 }

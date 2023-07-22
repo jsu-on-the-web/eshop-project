@@ -16,7 +16,7 @@ const HomePage = () => {
       <main className='' >
         {/** Carousel */}
         <section>
-          <h2 className='m-5 mb-10 text-5xl font-subheading'>Featured Products</h2>
+          <h2 className='m-5 mt-32 text-5xl mb-15 font-subheading'>Featured Products</h2>
           <CarouselWrapper products={products} />
         </section>
         {/** Products Grid */}

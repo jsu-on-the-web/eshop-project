@@ -2,8 +2,7 @@
 @use '../../base-imports.scss' as bi;
 .carouselcard {
     @include b.round-border--dark;
-    @apply flex flex-col items-center justify-between;
-
+    @apply flex flex-col items-center justify-between ;
     .product {
         &__image {
             width: 50%;

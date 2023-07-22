@@ -7,9 +7,9 @@ export function CarouselCard({ key, productImageSrc, productTitle, productPrice 
             <div className={` ${styles.carouselcard}`}>
                 <img src={productImageSrc} className='w-40 product__image max-h-50' />
                 <div className={`${styles.product__info}`} >
-                    <p className='text-xs text-left text-sage-600'>{"Starting from".toUpperCase() }</p>
-                    <p className='text-left text-sage-400 product__price'>{productPrice ? '$' + productPrice : "SOLD OUT"}</p>
-                    <p className='product__name'>{productTitle ? productTitle.toUpperCase() : 'Unknown'}</p>
+                    <p className='text-xs text-left text-brick-600'>{"Starting from".toUpperCase() }</p>
+                    <p className='text-2xl text-left text-brick-400 product__price'>{productPrice ? '$' + productPrice : "SOLD OUT"}</p>
+                    <p className='text-sm product__name'>{productTitle ? productTitle.toUpperCase() : 'Unknown'}</p>
 
                 </div>
             </div>

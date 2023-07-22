@@ -10,17 +10,14 @@ export function Carousel({ currentIndex, onPrevious, onNext }) {
     //     setShownProducts(products);
     //  }, [products, setShownProducts, shownProducts]);
         
+    const [visibleProducts, setVisibleProducts] = useState([]);
+
+    useEffect(() => {
+        setVisibleProducts(products.slice(currentIndex, currentIndex + 4));
+    }, [products, currentIndex]);
 
     return <div className={`${styles.carousel}`}>
-        {
-            /** Map a list of CarouselCards here, they must have the product image and the name, but nothing else */
-        }
-        {/* <CarouselCard />
-        <CarouselCard />
-        <CarouselCard />
-        <CarouselCard /> */}
-
-        {products.map((product) => (
+        {visibleProducts.map((product) => (
             <CarouselCard key={product.id} productImageSrc={product.imageUrl} productTitle={product.title} productPrice={product.qualities[3].price} />
         ))}
     </div>;

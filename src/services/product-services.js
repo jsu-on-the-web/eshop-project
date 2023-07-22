@@ -6,9 +6,12 @@ import {
 
 /*----------  Function Declaration  ----------*/
 export const fetchAllProducts = async () => {
+    console.log('Fetching all products...');
     const collectionReference = collection(db, 'products');
     const querySnapshot = await getDocs(collectionReference);
-    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    const products = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    console.log('Fetched products:', products);
+    return products;
 }
 
 export const fetchProductsById = async (id) => {

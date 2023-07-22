@@ -9,7 +9,7 @@ import CarouselWrapper from '../../components/CarouselWrapper/CarouselWrapper';
 import { ProductsListContext } from '../../context/ProductsListContextProvider';
 
 const HomePage = () => {
-  const ProductsList = useContext(ProductsListContext);
+  const { products } = useContext(ProductsListContext);
   return (
     <>
       {/* Body */}
@@ -17,10 +17,10 @@ const HomePage = () => {
         {/** Carousel */}
         <section>
           <h2 className='m-5 mb-10 text-5xl font-subheading'>Featured Products</h2>
-          <CarouselWrapper products={ProductsList.products} />
+          <CarouselWrapper products={products} />
         </section>
         {/** Products Grid */}
-        <ProductGrid products={ProductsList.products} />
+        <ProductGrid products={products} />
       </main>
     </>
   )

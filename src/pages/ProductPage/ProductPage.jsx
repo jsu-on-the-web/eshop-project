@@ -21,7 +21,7 @@ const ProductPage = () => {
         )
     }
 
-    const {imageUrl, title, description, qualities, isFavourite, category } = product;
+    const {imageUrl, title, description, qualities, isFavourite, category, publishedDate, pageCount } = product;
     return (
         <>
             <main>

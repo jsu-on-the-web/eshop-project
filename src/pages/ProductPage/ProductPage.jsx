@@ -1,4 +1,4 @@
-import {useContext} from 'react'
+import { useContext } from 'react'
 import { ProductsListContext } from '../../context/ProductsListContextProvider';
 import { useParams } from 'react-router-dom';
 
@@ -20,14 +20,22 @@ const ProductPage = () => {
             </main>
         )
     }
+
+    const {imageUrl, title, description, qualities, isFavourite, category } = product;
     return (
         <>
             <main>
-                <section>
-                    {/* <h2>{product.title}</h2> */}
-                    <h2></h2>
+                <section className='flex py-16 mx-auto max-w-8xl sm:py-24'>
+                    <img className='object-cover w-80' src={imageUrl} alt={title} />
+                    <div className='flex flex-col flex-1 ml-8'>
+                        <h2 className='text-4xl italic font-heading'>{title}</h2>
+
+                        {/* All the elements dependent on quality */}
+
+                        <p></p>
+                        <p className='mt-4 text-lg font-body'>{description}</p></div>
                 </section>
-        </main>
+            </main>
         </>
     )
 }

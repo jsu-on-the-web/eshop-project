@@ -10,8 +10,7 @@ export function Header() {
     <div className="absolute flex items-start justify-around mt-0 mb-6 top-2 lg:top-4 md:mt-5">{/** Hamburger menu */}
       <FontAwesomeIcon icon={faBars} className='ml-4 mr-20 md:text-3xl lg:text-6xl' />
 
-      <div className=' header__title'>
-
+      <div className={styles['header__title']}>
         <Link to="/">
           <h1 className='mb-2 text-lg font-heading sm:text-4xl md:text-5xl lg:text-6xl'>
             <FontAwesomeIcon icon={faBookAtlas} className='mr-10' />

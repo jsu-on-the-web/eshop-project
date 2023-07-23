@@ -15,20 +15,12 @@
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 	}
 
-	.productcard:hover .product__overlay {
-		opacity: 1;
-	}
-
 	.product__name {
 		@apply text-gray-800 font-semibold text-lg mt-2;
 	}
 
 	.product__price {
 		@apply font-bold text-xl mt-2;
-	}
-
-	.product__price-badge {
-		@apply inline-block bg-blue-500 text-white px-2 py-1 rounded-full;
 	}
 
 	.product__heart {

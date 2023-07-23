@@ -7,7 +7,8 @@ const ProductPage = () => {
         <>
             <main>
                 <section>
-                    <h2>{product.title}</h2>
+                    {/* <h2>{product.title}</h2> */}
+                    <h2></h2>
                 </section>
         </main>
         </>

@@ -37,13 +37,13 @@ export function ProductCard({ productImageSrc, productTitle, productPrice, produ
                 )}
             </div>
 
-            {/* Product Overlay */}
+            {/* Product Overlay
             <div className={`product__overlay ${isHovered ? styles.overlayVisible : ""}`}>
                 <div className="product__overlay-content font-body">
                     <p className="text-sm text-sage-100">Add to Cart</p>
                     <p className="text-sm text-sage-100">View Details</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

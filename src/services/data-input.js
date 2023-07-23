@@ -20,7 +20,7 @@ const addDocumentToFirestore = async (newDocData) => {
     // const description = newDocData.description;
     // const category = newDocData.category;
 
-    const {title, author, qualities, isFavourite, imageUrl, description, category} = newDocData;
+    const {title, author, qualities, isFavourite, imageUrl, description, category, publishedDate, pageCount} = newDocData;
 
     const documentData = {
         title,
@@ -29,7 +29,9 @@ const addDocumentToFirestore = async (newDocData) => {
         isFavourite,
         imageUrl,
         description,
-        category
+        category,
+        publishedDate,
+        pageCount
     }
     try {
         const docRef = await addDoc(collection(db, 'products'), documentData);

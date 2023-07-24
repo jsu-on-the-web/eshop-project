@@ -18,7 +18,7 @@ export function Carousel({ currentIndex, onPrevious, onNext }) {
 
     return <div className={`${styles.carousel}`}>
         {visibleProducts.map((product) => (
-            <CarouselCard key={product.id} productImageSrc={product.imageUrl} productTitle={product.title} productPrice={product.qualities[3].price} />
+            <CarouselCard key={product.id} productId={product.id} productImageSrc={product.imageUrl} productTitle={product.title} productPrice={product.qualities[3].price} />
         ))}
     </div>;
 }

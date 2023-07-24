@@ -1,21 +1,29 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect } from 'react';
 import { ProductsListContext } from '../../context/ProductsListContextProvider';
 import { useParams } from 'react-router-dom';
-import { formatDate } from '../../services/generalUtils';
+import { formatDate, capitalizeFirstLetter } from '../../services/generalUtils';
 
 const ProductPage = () => {
     const { products } = useContext(ProductsListContext);
     const { id } = useParams();
-    const [selectedQuality, setSelectedQuality] = useState('new');
+    const [selectedQuality, setSelectedQuality] = useState('');
 
     const handleQualityChange = (e) => {
-        setSelectedQuality(e.target.value);
+        const newQuality = e.target.value;
+        setSelectedQuality(newQuality);
+        console.log("Set selected quality to " + selectedQuality);
     }
 
     // Reset the selected quality when a new product loads in
     useEffect(() => {
         setSelectedQuality('new');
     }, [id]); // Add 'id' to the dependency array to reset when a new product is loaded
+
+    useEffect(() => {
+        console.log("Selected quality:", selectedQuality);
+    }, [selectedQuality]);
+
+
 
     // Find the item with the corresponding ID in the products array in the ProductsListContext
     const product = products.find((product) => product.id === id);
@@ -32,11 +40,13 @@ const ProductPage = () => {
         )
     }
 
-
-
     const { imageUrl, title, description, qualities, isFavourite, category, publishedDate, pageCount } = product;
-    const selectedQualityData = selectedQuality ? qualities.find((qual) => qual.id === selectedQuality) : null;
-    const selectedQualityPrice = selectedQualityData ? selectedQualityData.price : null;
+
+
+    let selectedQualityData = selectedQuality ? qualities.find((qual) => qual.id === selectedQuality) : null;
+    let selectedQualityPrice = selectedQualityData ? selectedQualityData.price : null;
+
+
     console.log("Product Data: ", product);
     return (
         <>
@@ -49,13 +59,13 @@ const ProductPage = () => {
 
                             {/* All the elements dependent on quality */}
                             <select value={selectedQuality} onChange={handleQualityChange} className='max-w-sm mt-4'>
-                                <option value="">Select Quality</option>
+                                <option value="new">Select Quality</option>
                                 {qualities.map((qual) => (
-                                    <option key={qual.id} value={qual.id}>{qual.quality}</option>
+                                    <option key={qual.id} value={qual.id}>{capitalizeFirstLetter(qual.quality)}</option>
                                 ))}
                             </select>
 
-                            {selectedQuality && selectedQualityData && (
+                            {selectedQuality !== "new" && selectedQualityData && (
                                 <div className='mt-4'>
                                     <p className='font-light font-body'>{selectedQualityPrice}</p>
                                 </div>
@@ -63,7 +73,8 @@ const ProductPage = () => {
 
                             {/* End of quality dependent elements */}
                             <p></p>
-                            <p className='mt-4 overflow-y-auto text-lg font-body'>{description}</p></div>
+                            <p className='mt-4 overflow-y-auto text-lg font-body'>{description}</p>
+                        </div>
                     </div>
 
                     <div className='items-center justify-center flex-1 mt-10 ml-8 font-body'>
@@ -76,4 +87,4 @@ const ProductPage = () => {
     )
 }
 
-export default ProductPage
+export default ProductPage;

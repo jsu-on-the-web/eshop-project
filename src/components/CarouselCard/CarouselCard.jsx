@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./CarouselCard.module.scss";
 import { Link } from "react-router-dom";
-export function CarouselCard({ key, productImageSrc, productTitle, productPrice }) {
+export function CarouselCard({ productId, productImageSrc, productTitle, productPrice }) {
     return (
-        <Link to={`/products/${key}`}>
+        <Link to={`/products/${productId}`}>
             <div className={` ${styles.carouselcard}`}>
                 <img src={productImageSrc} className='w-40 product__image max-h-50' />
                 <div className={`${styles.product__info}`} >

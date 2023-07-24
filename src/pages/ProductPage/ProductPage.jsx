@@ -8,6 +8,9 @@ const ProductPage = () => {
     const { id } = useParams();
     const [selectedQuality, setSelectedQuality] = useState('');
 
+    const [selectedQualityData, setSelectedQualityData] = useState(null);
+    const [selectedQualityPrice, setSelectedQualityPrice] = useState(null);
+
     const handleQualityChange = (e) => {
         const newQuality = e.target.value;
         setSelectedQuality(newQuality);
@@ -22,6 +25,17 @@ const ProductPage = () => {
     useEffect(() => {
         console.log("Selected quality:", selectedQuality);
     }, [selectedQuality]);
+
+    useEffect(() => {
+        if (products && products.length > 0) {
+            const product = products.find((product) => product.id === id);
+            if (product && product.qualities) {
+                const newSelectedQualityData = product.qualities.find((qual) => qual.id === selectedQuality) || null;
+                setSelectedQualityData(newSelectedQualityData);
+                setSelectedQualityPrice(newSelectedQualityData ? newSelectedQualityData.price : null);
+            }
+        }
+    }, [selectedQuality, products, id]);
 
 
 
@@ -39,12 +53,8 @@ const ProductPage = () => {
             </main>
         )
     }
-
     const { imageUrl, title, description, qualities, isFavourite, category, publishedDate, pageCount } = product;
 
-
-    let selectedQualityData = selectedQuality ? qualities.find((qual) => qual.id === selectedQuality) : null;
-    let selectedQualityPrice = selectedQualityData ? selectedQualityData.price : null;
 
 
     console.log("Product Data: ", product);
@@ -80,6 +90,7 @@ const ProductPage = () => {
                     <div className='items-center justify-center flex-1 mt-10 ml-8 font-body'>
                         <p><span className='font-bold'>Date Published:</span> {formatDate(publishedDate)}</p>
                         <p><span className='font-bold'>Page Count:</span> {pageCount}</p>
+                        <p><span className='font-bold'>Category:</span> {capitalizeFirstLetter(category)}</p>
                     </div>
                 </section>
             </main>

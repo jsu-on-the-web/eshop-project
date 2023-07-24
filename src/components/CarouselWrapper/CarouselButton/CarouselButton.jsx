@@ -1,10 +1,12 @@
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-const CarouselButton = () => {
+const CarouselButton = ({direction, onClick}) => {
   return (
-      <button className='carousel__button' onClick={() => { }}><FontAwesomeIcon icon={faArrowLeft}  /></button>
+    <button className='carousel__button' onClick={onClick}>
+      {direction === 'left' ? <FontAwesomeIcon icon={faArrowLeft} /> : <FontAwesomeIcon icon={faArrowRight} />}
+    </button>
   )
 }
 

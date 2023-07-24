@@ -1,9 +1,15 @@
 @use '../../borders.scss' as b;
 @use '../../base-imports.scss' as bi;
-.carouselcard {
-    @include b.round-border--dark;
-    @apply flex flex-col items-center justify-between ;
-    .product {
+
+.carouselcard  {
+	@apply bg-timberwolf-200 rounded-lg shadow-md overflow-hidden h-96 flex flex-col items-center justify-between;
+	transition: transform 0.2s;
+
+	&:hover {
+		transform: scale(1.02);
+	}
+
+        .product {
         &__image {
             width: 50%;
         }
@@ -11,5 +17,6 @@
             @apply flex flex-col justify-around m-4;
 
         }
-    }
-}
+	/* Add position: relative to the parent container to make absolute positioning work */
+	position: relative;
+} }

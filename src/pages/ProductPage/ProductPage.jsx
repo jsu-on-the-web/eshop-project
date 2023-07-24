@@ -1,7 +1,11 @@
 import { useContext, useState, useEffect } from 'react';
 import { ProductsListContext } from '../../context/ProductsListContextProvider';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { formatDate, capitalizeFirstLetter } from '../../services/generalUtils';
+import { db } from '../../config/firebase';
+import { collection, doc, updateDoc } from 'firebase/firestore';
 
 const ProductPage = () => {
     const { products } = useContext(ProductsListContext);
@@ -10,12 +14,25 @@ const ProductPage = () => {
 
     const [selectedQualityData, setSelectedQualityData] = useState(null);
     const [selectedQualityPrice, setSelectedQualityPrice] = useState(null);
+    const [favourite, setFavourite] = useState(false);
 
     const handleQualityChange = (e) => {
         const newQuality = e.target.value;
         setSelectedQuality(newQuality);
         console.log("Set selected quality to " + selectedQuality);
     }
+
+    const handleFavoriteClick = () => {
+        const productRef = doc(collection(db, 'products'), id);
+        updateDoc(productRef, { isFavourite: !favourite })
+            .then(() => {
+                console.log("Document successfully updated!");
+            })
+            .catch((error) => {
+                console.error("Error updating document: ", error);
+            });
+        setFavourite((prevFavourite) => !prevFavourite);
+    };
 
     // Reset the selected quality when a new product loads in
     useEffect(() => {
@@ -66,6 +83,10 @@ const ProductPage = () => {
                         <img className='object-cover w-80' src={imageUrl} alt={title} />
                         <div className='flex flex-col items-center flex-1 pb-4 ml-8 border-b-2 border-timberwolf-500'>
                             <h2 className='text-4xl italic font-heading'>{title}</h2>
+
+                            <button onClick={handleFavoriteClick} className='mt-4'>
+                                <FontAwesomeIcon icon={faHeart} size='2x' color={isFavourite ? 'red' : 'grey'} />
+                            </button>
 
                             {/* All the elements dependent on quality */}
                             <select value={selectedQuality} onChange={handleQualityChange} className='max-w-sm mt-4'>

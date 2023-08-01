@@ -1,0 +1,36 @@
+@use '../../base-imports.scss';
+.productcard {
+	@apply bg-timberwolf-200 rounded-lg shadow-md overflow-hidden;
+	transition: transform 0.2s;
+
+	&:hover {
+		transform: scale(1.02);
+	}
+
+	.product__image {
+        @apply rounded-lg;
+		width: 100%;
+		height: 200px; /* Adjust the height as needed */
+		object-fit: cover;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+	}
+
+	.product__name {
+		@apply text-gray-800 font-semibold text-lg mt-2;
+	}
+
+	.product__price {
+		@apply font-bold text-xl mt-2;
+	}
+
+	.product__heart {
+		@apply text-red-500; /* Change the color to a more vibrant one */
+	}
+
+	.product__heart--unfilled {
+		@apply text-gray-500; /* Change the color for an unfilled heart */
+	}
+
+	/* Add position: relative to the parent container to make absolute positioning work */
+	position: relative;
+}

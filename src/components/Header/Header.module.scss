@@ -1,0 +1,55 @@
+@use '../../base-imports.scss' as bi;
+header::before {
+	@apply bg-brick-900;
+	background-image: url("../../assets/eleonore-kemmel-K2Rrug-aWAg-unsplash.jpg");
+	content: "";
+	width: 100%;
+
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.1;
+}
+
+@media (max-width: 425px) {
+	header::before {
+		height: 3rem;
+	}
+}
+
+@media (max-width: 628px) {
+	header::before {
+		height: 2rem;
+	}
+}
+
+@media (max-width: 764px) {
+	header::before {
+		height: 5rem;
+	}
+ }
+
+@media (min-width: 768px) {
+	header::before {
+		height: 10rem;
+	}
+}
+
+@media (min-width: 992px) {
+	header::before {
+		height: 10rem;
+	}
+ }
+
+.header {
+	display: flex;
+	justify-content: center;
+	&__title {
+		position: relative;
+		line-height: 0.9;
+		text-align: center;
+	}
+}
